@@ -4,64 +4,105 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:background="?attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Task title"
-        android:textStyle="bold"
-        android:textAppearance="?attr/textAppearanceBodyLarge"
-        android:textColor="@color/text_primary" />
-
-    <!-- Description -->
-    <TextView
-        android:id="@+id/textDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Short description"
-        android:textAppearance="?attr/textAppearanceBodyMedium"
-        android:textColor="@color/text_secondary"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp" />
-
-    <!-- Date + Priority Row -->
+    <!-- Row container for avatar and task details -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
+        <!-- Avatar -->
         <TextView
-            android:id="@+id/textDueDate"
+            android:id="@+id/textAvatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@android:color/white"
+            android:textSize="34sp" />
+
+        <!-- Task info column -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2025-10-30 10:00"
-            android:textAppearance="?attr/textAppearanceBodySmall"
-            android:textColor="@color/text_secondary" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High"
-            android:textStyle="bold"
-            android:textColor="@color/accent"
-            android:textAppearance="?attr/textAppearanceBodySmall" />
+            <!-- Task Title -->
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Task Title"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Date and Priority Row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:id="@+id/textDueDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12/12/2025"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="High"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Progress Text -->
+            <TextView
+                android:id="@+id/textProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Progress | 0%"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="10sp" />
+
+            <!-- Progress Bar -->
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="4dp"
+                app:trackCornerRadius="3dp"
+                app:indicatorSize="6dp"
+                app:indicatorColor="@color/accent"
+                app:trackColor="?attr/colorSurfaceVariant" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Divider -->
+    <!-- Divider Line -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/divider"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/divider" />
 
 </LinearLayout>

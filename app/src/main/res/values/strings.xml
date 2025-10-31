@@ -41,7 +41,7 @@
     <string name="hint_task_title">Task title</string>
     <string name="hint_task_description">Task description</string>
 
-    <string name="priority_label">Priority: %1$s</string>
+    <string name="priority_label">Priority | %1$s</string>
     <string name="progress_updated">Progress updated</string>
     <string name="task_deleted">Task deleted</string>
 

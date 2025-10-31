@@ -68,17 +68,18 @@ class TaskListFragment : Fragment() {
         })
 
         // --- Clear icon behavior ---
-        binding.searchInputLayout?.isEndIconVisible = false
-        binding.editSearch.setOnFocusChangeListener { _, hasFocus ->
-            binding.searchInputLayout?.isEndIconVisible =
-                hasFocus && binding.editSearch.text?.isNotEmpty() == true
+        val inputLayout = binding.searchInputLayout
+        val editSearch = binding.editSearch
+
+        editSearch.setOnFocusChangeListener { _, hasFocus ->
+            inputLayout?.isEndIconVisible = hasFocus
         }
-        binding.searchInputLayout?.setEndIconOnClickListener {
-            binding.editSearch.text?.clear()
-            binding.editSearch.clearFocus()
-            binding.searchInputLayout!!.isEndIconVisible = false
-            searchQuery = ""
-            applyFilters()
+
+        inputLayout?.setEndIconOnClickListener {
+            editSearch.clearFocus()
+            editSearch.text?.clear()
+            inputLayout.isEndIconVisible = false
+            viewModel.allTasks.value?.let { adapter.submitList(it) }
         }
 
         // --- Priority Chips ---

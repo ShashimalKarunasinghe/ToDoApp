@@ -29,5 +29,10 @@
 
 
     <!-- Search highlight tint -->
-    <color name="search_bar_tint">#8AB4F8</color>
+    <color name="search_bar_tint">#3A394D</color>
+
+    <color name="progress_high">#6824EB</color>
+    <color name="progress_medium">#A16EEF</color>
+    <color name="progress_low">#B392F6</color>
+
 </resources>
