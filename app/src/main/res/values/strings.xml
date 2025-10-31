@@ -3,7 +3,7 @@
 
     <!-- Main / Task List -->
     <string name="title_task_list">Tasks List</string>
-    <string name="hint_search">Search tasks…</string>
+    <string name="hint_search">Search task</string>
     <string name="label_sort">Sort By</string>
     <string name="label_filter">Filter</string>
     <string name="action_add_task">Add Task</string>
@@ -46,9 +46,11 @@
     <string name="task_deleted">Task deleted</string>
 
     <string name="update_task">Update Task</string>
-
-
-
+    <string name="clear_text">clear</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_due_closest">Due Date</string>
+    <string name="sort_title_az">Title (A - Z)</string>
+    <string name="sort_title_za">Title (Z - A)</string>
 
 
 </resources>

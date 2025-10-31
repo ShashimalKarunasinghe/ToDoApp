@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_sort_title_az"
+        android:title="Title (A → Z)" />
+    <item
+        android:id="@+id/menu_sort_title_za"
+        android:title="Title (Z → A)" />
+    <item
+        android:id="@+id/menu_sort_due_closest"
+        android:title="Due Date (Closest First)" />
+</menu>

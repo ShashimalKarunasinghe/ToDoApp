@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.todo.R
+import com.example.todo.data.model.TaskEntity
 import com.example.todo.databinding.FragmentAddEditTaskBinding
 import com.example.todo.viewmodel.TaskViewModel
-import com.example.todo.data.model.TaskEntity
 import java.util.Calendar
 
 class AddEditTaskFragment : Fragment() {
@@ -37,13 +36,7 @@ class AddEditTaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Priority dropdown setup
-        val priorities = listOf("High", "Medium", "Low")
-        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, priorities)
-        binding.spinnerPriority?.setAdapter(adapter)
-        binding.spinnerPriority?.setOnClickListener { binding.spinnerPriority!!.showDropDown() }
-
-        // Date picker setup
+        // Date Picker
         binding.editTextDate?.setOnClickListener {
             val calendar = Calendar.getInstance()
             DatePickerDialog(
@@ -59,6 +52,18 @@ class AddEditTaskFragment : Fragment() {
             ).show()
         }
 
+        // Priority Toggle
+        binding.priorityToggleGroup?.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (isChecked) {
+                selectedPriority = when (checkedId) {
+                    R.id.btnHigh -> "High"
+                    R.id.btnMedium -> "Medium"
+                    R.id.btnLow -> "Low"
+                    else -> "Medium"
+                }
+            }
+        }
+
         // Load existing task if editing
         if (args.taskId != -1L) {
             viewModel.getTaskById(args.taskId).observe(viewLifecycleOwner) { task ->
@@ -67,18 +72,25 @@ class AddEditTaskFragment : Fragment() {
                     binding.editTextDescription?.setText(it.description)
                     binding.editTextDate?.setText(it.dueDate)
                     selectedPriority = it.priority
-                    binding.spinnerPriority?.setText(it.priority, false)
+                    when (it.priority) {
+                        "High" -> binding.priorityToggleGroup?.check(R.id.btnHigh)
+                        "Medium" -> binding.priorityToggleGroup?.check(R.id.btnMedium)
+                        "Low" -> binding.priorityToggleGroup?.check(R.id.btnLow)
+                    }
                     binding.btnSave.text = getString(R.string.update_task)
                 }
             }
+        } else {
+            // Default selection
+            binding.priorityToggleGroup?.check(R.id.btnMedium)
         }
 
-        // Save button
+        // Save Button
         binding.btnSave.setOnClickListener {
             val title = binding.editTextTitle?.text.toString().trim()
             val description = binding.editTextDescription?.text.toString().trim()
             val date = binding.editTextDate?.text.toString().trim()
-            val priority = binding.spinnerPriority?.text.toString().trim().ifEmpty { "Medium" }
+            val priority = selectedPriority.ifEmpty { "Medium" }
 
             if (title.isNotEmpty()) {
                 val task = TaskEntity(

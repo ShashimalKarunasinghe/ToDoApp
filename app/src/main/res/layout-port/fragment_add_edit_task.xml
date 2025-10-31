@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Title Field -->
+        <!-- Title -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,12 +24,12 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Description Field -->
+        <!-- Description -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:hint="Description">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextDescription"
@@ -39,12 +39,12 @@
                 android:gravity="top" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Date Field -->
+        <!-- Due Date -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Due Date"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:hint="Due Date">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextDate"
@@ -55,24 +55,48 @@
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Priority Dropdown -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutPriority"
+        <!-- Priority Segmented Button -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority Level"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/priorityToggleGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Priority"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="6dp"
+            app:singleSelection="true"
+            app:selectionRequired="true">
 
-            <AutoCompleteTextView
-                android:id="@+id/spinnerPriority"
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHigh"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:focusable="false"
-                android:clickable="true"
-                android:importantForAutofill="no"
-                android:hint="Select priority" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:text="High" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMedium"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Medium" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLow"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Low" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <!-- Save Button -->
         <com.google.android.material.button.MaterialButton
@@ -81,6 +105,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save Task"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 </ScrollView>

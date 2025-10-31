@@ -1,22 +1,33 @@
 <resources>
-    <color name="primary">#97C8A8</color>
-    <color name="secondary">#7FB491</color>
-    <color name="background">#222426</color>
-    <color name="surface">#2C6E52</color>
-    <color name="accent">#AFC080</color>
-    <color name="success">#7FB491</color>
-    <color name="error">#EBAE52</color>
-    <color name="text_primary">#F0F4F2</color>
-    <color name="text_secondary">#AFC080</color>
-    <color name="divider">#2C6E44</color>
+    <color name="primary">#9682B8</color> <!-- Deep purple -->
+    <color name="secondary">#9575CD</color> <!-- Soft lavender -->
+    <color name="background">#1B1A23</color> <!-- Dark indigo background -->
+    <color name="surface">#3D2E5A</color> <!-- Card surface purple -->
+    <color name="accent">#B39DDB</color> <!-- Light lavender accent -->
+    <color name="success">#9FA8DA</color> <!-- Muted periwinkle -->
+    <color name="error">#EBAE52</color> <!-- Kept amber for consistency -->
+    <color name="text_primary">#F0EAFB</color> <!-- Off-white lilac text -->
+    <color name="text_secondary">#B6AACC</color> <!-- Light lavender text -->
+    <color name="divider">#4A3A6B</color> <!-- Subtle purple divider -->
 
-    <color name="md_theme_light_primary">#60C878</color>
-    <color name="md_theme_light_tertiary">#FFD43B</color>
-    <color name="md_theme_dark_surface">#101515</color>
-    <color name="md_theme_dark_surfaceVariant">#1A1E1E</color>
-    <color name="md_theme_yellow">#FFD43B</color>
+    <color name="md_theme_light_primary">#9575CD</color> <!-- Light purple variant -->
+    <color name="md_theme_light_tertiary">#D1C4E9</color> <!-- Pale lilac tertiary -->
+    <color name="md_theme_dark_surface">#12101A</color> <!-- Deep violet surface -->
+    <color name="md_theme_dark_surfaceVariant">#2A2435</color> <!-- Dark lavender variant -->
+    <color name="md_theme_yellow">#FFD43B</color> <!-- Unchanged highlight color -->
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
+    <!-- Dark variant of surface -->
+    <color name="surface_container_low">#1C1B1F</color>
+
+    <!-- Outline / stroke color (lighter for dark mode) -->
+    <color name="md_theme_outlineVariant">#3A3A3A</color>
+
+    <!-- Text colors -->
+
+
+    <!-- Search highlight tint -->
+    <color name="search_bar_tint">#8AB4F8</color>
 </resources>

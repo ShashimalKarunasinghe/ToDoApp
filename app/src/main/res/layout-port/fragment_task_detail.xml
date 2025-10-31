@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Task Title"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_primary"
             android:layout_marginBottom="4dp" />
 
         <!-- Task Description -->
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Task description here"
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_secondary"
             android:layout_marginBottom="8dp" />
 
         <!-- Due Date -->
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="Due: 12 March 2025"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_secondary"
             android:layout_marginBottom="4dp" />
 
         <!-- Priority -->
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="Priority: Medium"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_secondary"
             android:layout_marginBottom="12dp" />
 
         <!-- Progress Label -->
@@ -59,18 +59,18 @@
             android:layout_height="wrap_content"
             android:text="Progress:"
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_secondary"
             android:layout_marginBottom="4dp" />
 
         <!-- Progress Slider -->
         <com.google.android.material.slider.Slider
             android:id="@+id/sliderProgress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:valueFrom="0"
-            android:valueTo="100"
+            android:layout_height="83dp"
+            android:stepSize="5"
             android:value="0"
-            android:stepSize="1" />
+            android:valueFrom="0"
+            android:valueTo="100" />
 
         <!-- Update Progress Button -->
         <com.google.android.material.button.MaterialButton
@@ -78,7 +78,7 @@
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update Progress"
+            android:text="Update"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:visibility="gone" />
@@ -101,18 +101,28 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEdit"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit"
-                android:layout_marginEnd="8dp" />
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_edit"
+                app:iconTint="@android:color/white"
+                android:backgroundTint="#6A4CA3"
+                android:contentDescription="Edit task" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDelete"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete" />
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="@android:color/white"
+                android:backgroundTint="#C0392B"
+                android:contentDescription="Delete task" />
+
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
