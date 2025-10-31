@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">TODO</string>
+
+    <!-- Main / Task List -->
+    <string name="title_task_list">Tasks List</string>
+    <string name="hint_search">Search tasks…</string>
+    <string name="label_sort">Sort By</string>
+    <string name="label_filter">Filter</string>
+    <string name="action_add_task">Add Task</string>
+
+    <!-- Add / Edit -->
+    <string name="title_add_edit_task">Add or Edit Task</string>
+    <string name="title_add_task">Add Task</string>
+    <string name="title_edit_task">Edit Task</string>
+    <string name="hint_title">Task title</string>
+    <string name="hint_description">Description</string>
+    <string name="label_date">Date</string>
+    <string name="label_time">Time</string>
+    <string name="label_priority">Priority</string>
+    <string name="priority_high">High</string>
+    <string name="priority_medium">Medium</string>
+    <string name="priority_low">Low</string>
+    <string name="btn_save">Save</string>
+    <string name="action_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <!-- Detail -->
+    <string name="title_task_detail">Task Details</string>
+    <string name="title_details">Task Details</string>
+    <string name="label_progress">Progress</string>
+    <string name="label_completed">Completed</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_delete">Delete</string>
+
+    <!-- Dialog / Messages -->
+    <string name="msg_delete_confirm">Delete this task?</string>
+    <string name="msg_task_saved">Task saved successfully</string>
+    <string name="msg_task_deleted">Task deleted</string>
+
+    <!-- Add/Edit Task Hints -->
+    <string name="hint_task_title">Task title</string>
+    <string name="hint_task_description">Task description</string>
+
+    <string name="priority_label">Priority: %1$s</string>
+    <string name="progress_updated">Progress updated</string>
+    <string name="task_deleted">Task deleted</string>
+
+    <string name="update_task">Update Task</string>
+
+
+
+
+
+</resources>

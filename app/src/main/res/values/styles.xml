@@ -1,0 +1,12 @@
+<resources>
+    <!-- Rounded card background -->
+    <style name="CardView.Rounded" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="AppBar.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>

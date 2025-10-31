@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.detail.TaskDetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Task Title -->
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task Title"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Task Description -->
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task description here"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Due Date -->
+        <TextView
+            android:id="@+id/textDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Due: 12 March 2025"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Priority -->
+        <TextView
+            android:id="@+id/textPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Priority: Medium"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Progress Label -->
+        <TextView
+            android:id="@+id/textProgressLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Progress:"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Progress Slider -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="0"
+            android:stepSize="1" />
+
+        <!-- Update Progress Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdateProgress"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Progress"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <!-- Completed Checkbox -->
+        <CheckBox
+            android:id="@+id/checkCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:layout_marginTop="12dp" />
+
+        <!-- Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
