@@ -15,14 +15,13 @@ class TaskListAdapter(
     private val onItemClick: (TaskEntity) -> Unit
 ) : ListAdapter<TaskEntity, TaskListAdapter.TaskViewHolder>(DiffCallback()) {
 
-    class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val avatar: TextView = itemView.findViewById(R.id.textAvatar)
-        val title: TextView = itemView.findViewById(R.id.textTitle)
-        val progressText: TextView = itemView.findViewById(R.id.textProgress)
-        val date: TextView = itemView.findViewById(R.id.textDueDate)
-        val priority: TextView = itemView.findViewById(R.id.textPriority)
-        val progressIndicator: LinearProgressIndicator =
-            itemView.findViewById(R.id.progressIndicator)
+    class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val avatar: TextView = view.findViewById(R.id.textAvatar)
+        val title: TextView = view.findViewById(R.id.textTitle)
+        val progressText: TextView = view.findViewById(R.id.textProgress)
+        val date: TextView = view.findViewById(R.id.textDueDate)
+        val priority: TextView = view.findViewById(R.id.textPriority)
+        val progressIndicator: LinearProgressIndicator = view.findViewById(R.id.progressIndicator)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -33,48 +32,46 @@ class TaskListAdapter(
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = getItem(position)
-        holder.title.text = task.title
-        holder.date.text = task.dueDate
-        holder.priority.text = task.priority
+        val context = holder.itemView.context
 
-        // Replace description with progress percentage
+        // --- Title, Date, Priority ---
+        holder.title.text = task.title
+        holder.date.text = task.dueDate ?: "No due date"
+        holder.priority.text = task.priority ?: "Unknown"
+
+        // --- Progress ---
         holder.progressText.text = "Progress | ${task.progress}%"
         holder.progressIndicator.progress = task.progress
 
-        // Avatar first letter
-        val firstLetter = task.title.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
+        // --- Avatar (first letter of title) ---
+        val firstLetter = task.title?.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
         holder.avatar.text = firstLetter
 
-        // Tint avatar color based on priority
-        val context = holder.itemView.context
-        val color = when (task.priority.lowercase()) {
+        // --- Avatar tint color based on priority ---
+        val avatarColor = when (task.priority?.lowercase()) {
             "high" -> context.getColor(R.color.progress_high)
             "medium" -> context.getColor(R.color.progress_medium)
             else -> context.getColor(R.color.progress_low)
         }
-        holder.avatar.background.setTint(color)
+        holder.avatar.background?.setTint(avatarColor)
 
-        // Progress color
-        when {
-            task.progress >= 80 -> holder.progressIndicator.setIndicatorColor(
-                context.getColor(R.color.progress_high)
-            )
-            task.progress >= 40 -> holder.progressIndicator.setIndicatorColor(
-                context.getColor(R.color.progress_medium)
-            )
-            else -> holder.progressIndicator.setIndicatorColor(
-                context.getColor(R.color.progress_low)
-            )
+        // --- Progress indicator color ---
+        val indicatorColor = when {
+            task.progress >= 80 -> context.getColor(R.color.progress_high)
+            task.progress >= 40 -> context.getColor(R.color.progress_medium)
+            else -> context.getColor(R.color.progress_low)
         }
+        holder.progressIndicator.setIndicatorColor(indicatorColor)
 
+        // --- Click listener ---
         holder.itemView.setOnClickListener { onItemClick(task) }
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<TaskEntity>() {
-        override fun areItemsTheSame(oldItem: TaskEntity, newItem: TaskEntity) =
+    private class DiffCallback : DiffUtil.ItemCallback<TaskEntity>() {
+        override fun areItemsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: TaskEntity, newItem: TaskEntity) =
+        override fun areContentsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
             oldItem == newItem
     }
 }

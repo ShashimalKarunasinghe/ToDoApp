@@ -46,7 +46,7 @@ class TaskDetailFragment : Fragment() {
                 binding.textDateTime?.text = it.dueDate ?: ""
                 binding.textPriority?.text = getString(R.string.priority_label, it.priority)
                 binding.sliderProgress?.value = it.progress.toFloat()
-                binding.checkCompleted?.isChecked = it.isCompleted
+
             }
         }
 

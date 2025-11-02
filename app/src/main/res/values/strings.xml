@@ -17,9 +17,9 @@
     <string name="label_date">Date</string>
     <string name="label_time">Time</string>
     <string name="label_priority">Priority</string>
-    <string name="priority_high">High</string>
-    <string name="priority_medium">Medium</string>
-    <string name="priority_low">Low</string>
+    <string name="priority_high">HIGH</string>
+    <string name="priority_medium">MEDIUM</string>
+    <string name="priority_low">LOW</string>
     <string name="btn_save">Save</string>
     <string name="action_save">Save</string>
     <string name="btn_cancel">Cancel</string>

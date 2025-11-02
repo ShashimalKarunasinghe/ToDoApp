@@ -17,8 +17,8 @@
         <!-- Avatar -->
         <TextView
             android:id="@+id/textAvatar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/bg_avatar_circle"
             android:gravity="center"

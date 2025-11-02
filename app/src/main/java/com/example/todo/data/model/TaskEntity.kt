@@ -12,5 +12,6 @@ data class TaskEntity(
     val priority: String,
     val progress: Int = 0,
     val isCompleted: Boolean = false
+
 )
 
